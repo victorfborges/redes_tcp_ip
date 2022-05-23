@@ -67,7 +67,7 @@ int main (int argc, char *argv[])
 	
 	printf("connect sucess\n");
 	/* laço principal: obtém e envia linhas de texto */
-	while (fgets(buf, MAX_LINE, fp) != NULL){
+	while (fgets(buf, sizeof(buf), stdin)){
 		buf[MAX_LINE-1] = '\0';
 		len = strlen(buf) + 1;
 		send(s, buf, len, 0);
