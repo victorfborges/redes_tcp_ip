@@ -46,6 +46,8 @@ int main(){
 		}
 		while(len = recv(new_s, buf, sizeof(buf), 0)){
 			fputs(buf, stdout);
+			send(s, buf, sizeof(buf), 0);
+			
 		}
 		close(new_s);
 		printf("porta fechada\n");
