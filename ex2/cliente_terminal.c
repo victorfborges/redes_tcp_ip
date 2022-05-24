@@ -18,6 +18,7 @@ int main (int argc, char *argv[])
 	struct sockaddr_in sin; 
 	char *host;
 	char buf[MAX_LINE];
+	char buf1[MAX_LINE];
 	int s;
 	int len;
 	struct in_addr addr;
@@ -74,8 +75,12 @@ int main (int argc, char *argv[])
 		buf[MAX_LINE-1] = '\0';
 		len = strlen(buf) + 1;
 		send(s, buf, len, 0);
-		recv(new_s, buf, sizeof(buf), 0);
-		fputs(buf, stdout);
+		printf("1\n");
+		len = sizeof(sin);
+		printf("2\n");
+		recv(new_s, buf1, sizeof(buf1), 0);
+		printf("3\n");
+		fputs(buf1, stdout);
 	}
 	
 	fclose(fp);
