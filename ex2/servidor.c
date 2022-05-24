@@ -16,7 +16,7 @@ int main(){
 	struct sockaddr_in sin;
 	char buf[MAX_LINE];
 	int len;
-	int new_s;
+	int s, new_s;
 
 	/*monta estrutura de dados de endereço*/
 	bzero((char *)&sin, sizeof(sin));
@@ -46,11 +46,8 @@ int main(){
 		}
 		while(len = recv(new_s, buf, sizeof(buf), 0)){
 			fputs(buf, stdout);
-			printf("1\n");
 			buf[MAX_LINE-1] = '\0';
-			printf("2\n");
 			send(new_s, buf, sizeof(buf), 0);
-			printf("3\n");
 			
 		}
 		printf("porta fechada\n");

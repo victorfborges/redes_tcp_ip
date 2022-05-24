@@ -75,11 +75,9 @@ int main (int argc, char *argv[])
 		buf[MAX_LINE-1] = '\0';
 		len = strlen(buf) + 1;
 		send(s, buf, len, 0);
-		printf("1\n");
 		len = sizeof(sin);
-		printf("2\n");
-		recv(new_s, buf1, sizeof(buf1), 0);
-		printf("3\n");
+		recv(s, buf1, sizeof(buf1), 0);
+		printf("Servidor: ");
 		fputs(buf1, stdout);
 	}
 	
