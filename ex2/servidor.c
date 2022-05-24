@@ -38,17 +38,18 @@ int main(){
 	
 	len = sizeof(sin);
 
-	/* espera conexão, depois recebe e imprime texto */
 	while(1){
+		// espera uma conexão ser realizada
 		if((new_s = accept(s, (struct sockaddr *)&sin, &len)) < 0){
 		perror("simplex-talk: accept");
 		exit(1);
 		}
+		// espera a chegada de uma mensagem, quando chega é
+		// printado na tela e enviado a mesma mensagem de volta
 		while(len = recv(new_s, buf, sizeof(buf), 0)){
 			fputs(buf, stdout);
 			buf[MAX_LINE-1] = '\0';
 			send(new_s, buf, sizeof(buf), 0);
-			
 		}
 		printf("porta fechada\n");
 		close(new_s);

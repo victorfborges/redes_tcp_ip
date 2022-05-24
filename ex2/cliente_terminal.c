@@ -71,11 +71,13 @@ int main (int argc, char *argv[])
 	printf("connect sucess\n");
 	/* laço principal: obtém e envia linhas de texto */
 	while(1){
+	    // espera o usuario colocar algo no teclado, 
 		fgets(buf, sizeof(buf), stdin);
 		buf[MAX_LINE-1] = '\0';
 		len = strlen(buf) + 1;
+	    // envia uma mensagem com o texto inserido
 		send(s, buf, len, 0);
-		len = sizeof(sin);
+		// espera o servidor devolver a mensagem e printa o resultado
 		recv(s, buf1, sizeof(buf1), 0);
 		printf("Servidor: ");
 		fputs(buf1, stdout);
