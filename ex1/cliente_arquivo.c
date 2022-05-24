@@ -6,6 +6,7 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <arpa/inet.h>
+#include <unistd.h>
 
 #define SERVER_PORT 54321
 #define MAX_LINE 256
